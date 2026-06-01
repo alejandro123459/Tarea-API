@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAT</title>
+</head>
+<body>
+    <style>
+    body{
+        background-color: rgb(45, 62, 82);
+    }
+    p{
+        color: rgb(255, 255, 255);
+    }
+    h1{
+        color: rgb(255, 255, 255);
+    }
+        
+    </style>
+
+
+    <H1>¿Qué entendí que era o que hace una API?</H1>
+    <p>Una API es como una herramienta que la pidemos utilizar como un puente para mandar una solicitud de algo que nuestro proyecto o aplicacion necesita,
+        un ejemplo puede ser de que una app de mapas, lo que hace es mandar a las apis una solicitud para obtener mapas y no hacerlos desde cero y no estresarse :3.
+    </p>
+
+      <img id="gatito" width="300">
+
+    <br><br>
+
+    <button id="boton">Cambiar Gatito</button>
+    <div id="gatitos"></div>
+
+    <script>
+           const imagen = document.getElementById("gatito");
+        const boton = document.getElementById("boton");
+
+        async function obtenerGatito() {
+            const api = await fetch("https://api.thecatapi.com/v1/images/search");
+            const datos = await api.json();
+
+            imagen.src = datos[0].url;
+        }
+
+        boton.addEventListener("click", obtenerGatito);
+
+        obtenerGatito();
+        
+    </script>
+    
+</body>
+</html>
